@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="firsttest.test.shoppingkuang.ui.home.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/topicFragment"
+        android:name="firsttest.test.shoppingkuang.ui.topic.TopicFragment"
+        android:label="TopicFragment" />
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="firsttest.test.shoppingkuang.ui.shop.ShopFragment"
+        android:label="ShopFragment" />
+    <fragment
+        android:id="@+id/sortFragment"
+        android:name="firsttest.test.shoppingkuang.ui.sort.SortFragment"
+        android:label="SortFragment" />
+    <fragment
+        android:id="@+id/meFragment"
+        android:name="firsttest.test.shoppingkuang.ui.me.MeFragment"
+        android:label="MeFragment" />
+</navigation>

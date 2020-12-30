@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/cardview_light_background"
+    android:layout_height="match_parent"
+    tools:context=".welcome.WelcomeActivity">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/vp"
+        app:layout_constraintEnd_toEndOf="@+id/vp"
+        app:layout_constraintStart_toStartOf="@+id/vp"
+        app:layout_constraintTop_toTopOf="@+id/vp"
+        app:layout_constraintVertical_bias="0.86">
+
+        <ImageView
+            android:id="@+id/dot_1"
+            android:layout_width="10dp"
+            android:background="@color/cardview_shadow_start_color"
+            android:layout_height="10dp"
+            android:layout_marginRight="5dp"
+            />
+
+        <ImageView
+            android:id="@+id/dot_2"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@color/cardview_shadow_start_color"
+            android:layout_margin="5dp"
+            />
+
+        <ImageView
+            android:id="@+id/dot_3"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/cardview_shadow_start_color"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
