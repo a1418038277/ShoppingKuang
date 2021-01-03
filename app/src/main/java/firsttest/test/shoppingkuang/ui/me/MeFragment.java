@@ -60,7 +60,7 @@ public class MeFragment extends BaseFragment{
         String token = SpUtils.getInstance().getString("token");
         if (!TextUtils.isEmpty(token)) {
             isLogin(true);
-//            presenter.updateUserInfo();
+
         } else {
             isLogin(false);
         }
@@ -86,7 +86,7 @@ public class MeFragment extends BaseFragment{
             if (!TextUtils.isEmpty(nickname)) {
                 txtNickname.setText(nickname);
             } else {
-                txtNickname.setText(username);
+                txtMark.setText(username);
             }
 //            Glide.with(mContext).load(avatar).into(imgHead);
             String img = SpUtils.getInstance().getString("img");

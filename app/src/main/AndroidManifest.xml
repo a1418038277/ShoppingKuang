@@ -16,8 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.me.UserInfoDetailActivity"
-            android:windowSoftInputMode="adjustNothing"></activity>
+        <activity android:name=".ui.shop.OrderActivity"></activity>
+        <activity
+            android:name=".ui.me.UserInfoDetailActivity"
+            android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".welcome.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +35,7 @@
         <activity android:name=".ui.home.make.BrandActivity" />
         <activity android:name=".ui.home.details.DetailActivity" />
         <activity android:name=".ui.home.SearchActivity" />
-        <activity android:name=".SplaceActivity"></activity>
+        <activity android:name=".SplaceActivity" />
         <activity android:name=".ui.sort.SortDetail.BigImageActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ui.home.make.BrandDetailActivity" />

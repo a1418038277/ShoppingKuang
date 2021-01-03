@@ -27,7 +27,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private ImageView mDot2;
     private ImageView mDot3;
     private int num = 3;
-
+    public static boolean isUpdate;
     Handler handler = new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {

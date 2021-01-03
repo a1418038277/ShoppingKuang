@@ -5,6 +5,7 @@ package firsttest.test.shoppingkuang.api;
 import java.util.HashMap;
 import java.util.Map;
 
+import firsttest.test.shoppingkuang.model.app.AppBean;
 import firsttest.test.shoppingkuang.model.home.HomeBean;
 import firsttest.test.shoppingkuang.model.home.detail.CategoryBean;
 import firsttest.test.shoppingkuang.model.home.detail.GoodListBean;
@@ -14,6 +15,7 @@ import firsttest.test.shoppingkuang.model.home.make.BrandGoodListBean;
 import firsttest.test.shoppingkuang.model.home.make.HotGoodBean;
 import firsttest.test.shoppingkuang.model.home.make.HotGoodListBean;
 import firsttest.test.shoppingkuang.model.login.LoginBean;
+import firsttest.test.shoppingkuang.model.login.LogoutBean;
 import firsttest.test.shoppingkuang.model.login.RegisterBean;
 import firsttest.test.shoppingkuang.model.my.UserInfoBean;
 import firsttest.test.shoppingkuang.model.shop.AddCarBean;
@@ -168,4 +170,19 @@ public interface ShopApi {
     //用户信息更新
     @POST("api/user/updateUserInfo")
     Flowable<UserInfoBean> updateUserInfo(@FieldMap Map<String,String> map);
+
+
+    //注册
+    @POST("api/auth/registernew")
+    @FormUrlEncoded
+    Flowable<RegisterBean> register(@Field("username") String username,@Field("password") String password);
+
+    //退出登录
+    @POST("api/auth/logout")
+    Flowable<LogoutBean> logout();
+
+
+    //版本更新
+    @GET("api/apk/appinfo")
+    Flowable<AppBean> getAppInfo();
 }

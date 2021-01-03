@@ -95,6 +95,7 @@ public class RegisterActivity extends BaseAcitvity<RegistPresenter> implements I
                 break;
             case R.id.btn_register:
                 initRegist();
+                finish();
                 break;
         }
     }

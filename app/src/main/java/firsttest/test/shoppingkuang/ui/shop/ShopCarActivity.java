@@ -180,6 +180,7 @@ public class ShopCarActivity extends BaseAcitvity<IShop.Presenter> implements IS
                     openGoodCar();
                     break;
                 case R.id.txt_buy:
+                    startActivity(new Intent(this,OrderActivity.class));
                     break;
                 case R.id.txt_addCar:
                     if (isCarSelect) {

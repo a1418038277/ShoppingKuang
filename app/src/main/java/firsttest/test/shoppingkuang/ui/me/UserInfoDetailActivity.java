@@ -1,10 +1,10 @@
 package firsttest.test.shoppingkuang.ui.me;
 
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.alibaba.sdk.android.oss.ClientConfiguration;
@@ -78,6 +79,8 @@ public class UserInfoDetailActivity extends BaseAcitvity<IUser.Presenter> implem
     ConstraintLayout layoutInput;
     @BindView(R.id.img_avatar)
     ImageView imgAvatar;
+    @BindView(R.id.txt_username)
+    TextView txtUsername;
     private OSS ossClient;
 
 
@@ -99,6 +102,10 @@ public class UserInfoDetailActivity extends BaseAcitvity<IUser.Presenter> implem
         if (!TextUtils.isEmpty(img)) {
             Glide.with(this).load(img).apply(new RequestOptions().circleCrop()).into(imgAvatar);
         }
+        String nickname = SpUtils.getInstance().getString("nickname");
+        String username = SpUtils.getInstance().getString("username");
+        txtNickname.setText(nickname);
+        txtUsername.setText(username);
     }
 
     @Override
@@ -144,16 +151,19 @@ public class UserInfoDetailActivity extends BaseAcitvity<IUser.Presenter> implem
                 break;
             case R.id.btn_save:
                 String nickname = txtInput.getText().toString();
+                SpUtils.getInstance().setValue("nickname", nickname);
                 if (!TextUtils.isEmpty(nickname)) {
                     Map<String, String> map = new HashMap<>();
                     map.put("nickname", nickname);
                     presenter.updateUserInfo(map);
+                    txtNickname.setText(nickname);
                 }
                 break;
         }
-}
+    }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -246,7 +256,7 @@ public class UserInfoDetailActivity extends BaseAcitvity<IUser.Presenter> implem
                 String url = ossClient.presignPublicObjectURL(request.getBucketName(), request.getObjectKey());
                 uploadAvatar(url);
                 //调用服务器接口 把url上传到服务器的接口
-                Log.e("TAG", "onSuccess: "+url);
+                Log.e("TAG", "onSuccess: " + url);
                 SpUtils.getInstance().setValue("img", url);
                 Map<String, String> map = new HashMap<>();
                 map.put("avatar", url);
@@ -272,10 +282,6 @@ public class UserInfoDetailActivity extends BaseAcitvity<IUser.Presenter> implem
             }
         });
     }
-
-
-
-
 
 
     private void uploadAvatar(String url) {
